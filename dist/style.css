@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+* {
+	margin: 0;
+	overflow: hidden;
+	font-family: "Macondo", cursive;
+}
+body {
+	background-color: #ff4950;
+	height: 100vh;
+	animation: background 1s infinite ease-in-out alternate;
+}
+#pendulum {
+	position: relative;
+	top: -3px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transform-origin: top;
+	animation: swing 1s infinite ease-in-out alternate;
+}
+
+#pendulum > .circle {
+	top: 0;
+	box-shadow: none;
+}
+#string {
+	height: 250px;
+	width: 10px;
+	background-color: #000;
+	animation: background 1s infinite ease-in-out alternate-reverse;
+}
+.circle {
+	width: var(--i);
+	height: var(--i);
+	border-radius: 50rem;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: -3px;
+	box-shadow: 1px 1px 10px 1px #000;
+	animation: rotate 2s infinite linear;
+}
+.circle.black {
+	background-color: #000;
+}
+h1 {
+	font-size: 4rem;
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: color 1s infinite ease-in-out alternate-reverse;
+}
+@keyframes background {
+	from {
+		background-color: #000;
+	}
+	to {
+		background-color: #fff;
+	}
+}
+@keyframes color {
+	from {
+		color: #000;
+	}
+	to {
+		color: #fff;
+	}
+}
+@keyframes swing {
+	from {
+		transform: rotate(-30deg);
+	}
+	to {
+		transform: rotate(30deg);
+	}
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@media (max-height: 580px) {
+	#string {
+		height: 150px;
+	}
+	.circle {
+		width: calc(var(--i) * 0.6);
+		height: calc(var(--i) * 0.6);
+	}
+	h1 {
+		font-size: 2.5rem;
+	}
+}
